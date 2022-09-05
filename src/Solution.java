@@ -37,17 +37,11 @@ class Solution {
         return res;
     }
 
-    public int maxPoints(int[][] points) {
-
-        int res = 0;
+    HashMap<Long, ArrayList<ArrayList<Integer>>> storeSlopes(int[][] points) {
 
         HashMap<Long, ArrayList<ArrayList<Integer>>> hash = new HashMap<>();
 
         int m = points.length;
-
-        if(m <= 2) {
-            return m;
-        }
 
         // Store slopes of all pairs of points for hashing
         for(int i = 0; i < m; ++i) {
@@ -93,6 +87,15 @@ class Solution {
             }
         }
 
+        return hash;
+    }
+
+    int maxPointsFcn(int[][] points, HashMap<Long, ArrayList<ArrayList<Integer>>> hash) {
+
+        int m = points.length;
+
+        int res = 0;
+
         // Compute max number of points on a line
         for(int i = 0; i < m; ++i) {
             int[] v1 = points[i];
@@ -124,5 +127,19 @@ class Solution {
         }
 
         return res;
+    }
+    public int maxPoints(int[][] points) {
+
+        // Store the slopes of all pairs of points
+        HashMap<Long, ArrayList<ArrayList<Integer>>> hash = storeSlopes(points);
+
+        int m = points.length;
+
+        if(m <= 2) {
+            return m;
+        }
+
+        // Compute max number of points on a line
+        return maxPointsFcn(points, hash);
     }
 }
