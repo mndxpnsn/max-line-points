@@ -7,12 +7,8 @@ class Solution {
     long MAX = Long.MAX_VALUE;
 
     int max(int a, int b) {
-        int res = 0;
 
-        if(a > b) res = a;
-        else res = b;
-
-        return res;
+        return Math.max(a, b);
     }
 
     int numPoints(ArrayList<ArrayList<Integer>> list) {
@@ -60,7 +56,6 @@ class Solution {
                 int[] v2 = points[j];
 
                 ArrayList<Integer> pointsPair = new ArrayList<>();
-                ArrayList<Integer> vec1 = new ArrayList<>();
 
                 pointsPair.add(i);
                 pointsPair.add(j);
@@ -70,10 +65,10 @@ class Solution {
                 double[] v1D = new double[2];
                 double[] v2D = new double[2];
 
-                v1D[0] = (double) v1[0];
-                v1D[1] = (double) v1[1];
-                v2D[0] = (double) v2[0];
-                v2D[1] = (double) v2[1];
+                v1D[0] = v1[0];
+                v1D[1] = v1[1];
+                v2D[0] = v2[0];
+                v2D[1] = v2[1];
 
                 // Compute slope
                 if(v2[0] == v1[0]) {
@@ -107,10 +102,10 @@ class Solution {
                 double[] v1D = new double[2];
                 double[] v2D = new double[2];
 
-                v1D[0] = (double) v1[0];
-                v1D[1] = (double) v1[1];
-                v2D[0] = (double) v2[0];
-                v2D[1] = (double) v2[1];
+                v1D[0] = v1[0];
+                v1D[1] = v1[1];
+                v2D[0] = v2[0];
+                v2D[1] = v2[1];
 
                 long slope = 0;
 
